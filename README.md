@@ -5,10 +5,9 @@ A prototype for b2b networking site
 - http://www.sitepoint.com/messaging-rails-mailboxer/
 - http://www.stefanosioannou.com/rails-4-simple-search-form/
 - https://github.com/plataformatec/devise
+- https://css-tricks.com/textarea-tricks/
 - many stackoverflow pages
 
 ### To Do / Fixes
-- Get glyphicons to work
-- Toggle for sidebar
 
 
