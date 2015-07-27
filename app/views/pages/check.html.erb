@@ -1,0 +1,10 @@
+<!-- app/views/pages/index.html.erb -->
+
+<div class = 'container'>
+	<div class = 'info'>
+		<% @users.each do |u| %>
+			Email: <%= u.email %>
+			Comp_Name: <%= u.company_name %>
+		<% end %>
+	</div>
+</div>

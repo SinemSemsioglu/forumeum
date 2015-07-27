@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ForumeumProt</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <header id = 'main-header'>
+	<div class="container-fluid">
+			<div class="rows">
+				<div class="col-sm-3" id= "brand-wrapper">
+					
+				 		<%= link_to 'Forumeum', root_path, class: 'brand' %>      
+             		
+				</div>
+				<div class="col-sm-6">
+					<div id="search-wrapper">
+						<form class="navbar-form" role="search">
+						   <div class = "center-block">
+						      <%= form_tag(users_search_path, :method => "get", id: "search-form") do %>
+						         <%= button_tag(type: 'submit', class: "btn btn-search") do %>
+								    <span class="glyphicon glyphicon-search"></span> 
+								    <!--i class="glyphicon glyphicon-search"></i--> 
+							      <% end %>  
+						      <div class="form-group">
+							     <%= text_field_tag :search, params[:search], id: "search-form-text", placeholder: "Search Users" %>
+						      </div>
+							   <% end %>
+						   </div>
+						</form>
+				
+					<!--%= submit_tag "Search", :name => nil %-->
+					</div>
+				  </div>
+				  <div class="col-sm-3">
+				  	<% if !user_signed_in? %>
+				  	  <div class = "content">
+						  <ul id="log">
+							<li class = "pull-right"><%= link_to 'Sign Up', new_user_registration_path %></li>
+							<li class = "pull-right"><%= link_to 'Log In', new_user_session_path %></li>
+						  </ul>
+					  </div>
+				  	<% end %>
+				  </div>
+			</div>
+	</div>			
+</header>
+  <div class="container-fluid">
+	<!-- Sidebar -->
+	 <div class="row">
+		<div class="col-sm-3">
+			<div class="left-sidebar">
+			  <% if user_signed_in? %>
+				<navigation class="nav navbar-left nav-custom">
+					<ul class="nav nav-stacked nav-custom">
+						  <li><%= link_to 'Settings', edit_user_registration_path %></li>
+						  <li><%= link_to 'Profile', profile_path(current_user.id) %></li>
+						  <li><%= link_to 'Messages', conversations_path %></li>
+						  <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete %></li>  		
+					</ul>
+				</navigation>
+				<div class = "pull-left" id="history">
+					<h3> History </h3>
+					<div id="boxes">
+						<div class = "box pull-left"></div>
+						<div class = "box pull-left"></div>
+						<div class = "box pull-left"></div>
+						<div class = "box pull-left"></div>
+						<div class = "box pull-left"></div>
+						<div class = "box pull-left"></div>
+					</div>
+				</div>
+			  <% end %>
+			</div>
+		</div>
+		<div class="col-sm-6">
+		  <div class="content">
+		   <div class = "page-header">
+			  <h1><%= yield :page_header %></h1>
+	  
+		   </div>
+			<% flash.each do |key,val| %>
+			   <div class ="alert alert-<%key%>">
+				  <%= val %>
+			   </div>
+			<% end %>
+			<%= yield %>
+		  </div>
+		</div>
+		<div class = "col-sm-3">
+			<div class = "rigt-sidebar">
+				
+			</div>
+		</div>
+		 
+	</div>
+</div>
+</body>
+</html>
+
+
+
+                      
+
+
+       
+        

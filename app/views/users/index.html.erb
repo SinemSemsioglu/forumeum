@@ -1,0 +1,8 @@
+<% page_header "Search Results" %>
+
+<% @users.each do |user| %>
+	<%= link_to user.company_name, profile_path(user.id) %>
+	</br>
+	<%= user.company_type %>
+	</br>
+<% end %>
