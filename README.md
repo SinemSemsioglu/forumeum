@@ -1,5 +1,7 @@
 # forumeum
 A prototype for b2b networking site
+(far from being done).
+You can visit the current version at https://ancient-beach-6304.herokuapp.com/
 
 ### Sources
 - http://www.sitepoint.com/messaging-rails-mailboxer/
